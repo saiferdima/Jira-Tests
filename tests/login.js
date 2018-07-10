@@ -1,8 +1,12 @@
 module.exports = {
-    'Demo test jira login' : function (client) {
+    before: function (client) {
+        client.maximizeWindow();
+    },
+    'Demo test jira login': function (client) {
+
         var loginPage = client.page.loginPage();
         loginPage.navigate();
-        loginPage.login('admin','admin');
+        loginPage.login('admin', 'admin');
         client.end();
     }
 };
