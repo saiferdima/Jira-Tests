@@ -1,0 +1,25 @@
+{
+  "name": "JiraTestsWithNightwatch",
+  "description": "First try",
+  "version": "0.0.1",
+  "author": {
+    "name": "Dmitry Popazov",
+    "email": "saiferdima@gmail.com"
+  },
+  "homepage": "",
+  "main": "./lib/index.js",
+  "license": "",
+  "bugs": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/saiferdima/Jira-Tests.git"
+  },
+  "dependencies": {
+    "assertion-error": "^1.1.0",
+    "chai-nightwatch": "~0.1.x",
+    "lodash": "^3.0.3",
+    "superagent": "^3.0.0",
+    "chai": "^4.1.2",
+    "mocha": "^5.1.1"
+  }
+}
