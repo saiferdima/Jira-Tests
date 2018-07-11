@@ -1,4 +1,5 @@
 module.exports = {
+
     before: function (client) {
         client.maximizeWindow();
     },
@@ -13,7 +14,14 @@ module.exports = {
         var navigationPage = client.page.navigationPage();
         navigationPage.goToDashboard();
         navigationPage.expect.element('@dashboardItemHeader').to.be.visible;
-        client.end();
+
     },
 
+    'Create issue ': function (client) {
+        var navigationPage = client.page.navigationPage();
+        var createIssue = navigationPage.section.issueCreate;
+        navigationPage.createIssue('Test summary',true);
+        client.pause(1000)
+        .end();
+    },
 };
