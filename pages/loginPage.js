@@ -1,6 +1,6 @@
 const loginComands = {
     login(login, password) {
-        this.waitForElementVisible('@submitButton', 1000)
+        this.waitForElementVisible('@submitButton', 3000)
             .setValue('@loginInput', login)
             .setValue('@passwordInput', password)
             .click('@submitButton');
@@ -11,7 +11,9 @@ const loginComands = {
 };
 
 module.exports = {
-    url: 'http://localhost:8080',
+    url: function() {
+        return this.api.launchUrl;
+    },
     commands: [loginComands],
     elements: {
         loginInput: {selector: 'input[id="login-form-username"]'},
