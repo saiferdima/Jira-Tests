@@ -2,23 +2,23 @@ const navigationCommands = {
 
     goToDashboard() {
         var menu = this.section.menu;
-        menu.waitForElementVisible('@jiraLogoButton', 3000)
+        menu.waitForElementVisible('@jiraLogoButton')
             .click('@jiraLogoButton');
-        menu.waitForElementVisible('@settingsButton', 2000);
+        menu.waitForElementVisible('@settingsButton');
 
         return this; // Return page object for chaining
     },
     createIssue(summary, navigateToDetailFlag) {
         var menu = this.section.menu;
         var createIssue = this.section.issueCreate;
-        menu.waitForElementVisible('@jiraLogoButton', 2000)
+        menu.waitForElementVisible('@jiraLogoButton')
             .click('@createButton');
-        createIssue.waitForElementVisible('@createButton', 2000)
+        createIssue.waitForElementVisible('@createButton')
             .setValue('@summary', summary)
             .click('@createButton')
-            .waitForElementNotPresent('@createButton', 2000);
+            .waitForElementNotPresent('@createButton');
         if(navigateToDetailFlag){
-            this.waitForElementPresent('@flagContainer', 2000)
+            this.waitForElementPresent('@flagContainer')
                 .click('@createIssueLink');
         }
         return this;
