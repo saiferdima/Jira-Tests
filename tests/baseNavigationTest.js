@@ -19,6 +19,25 @@ module.exports = {
         let navigationPage = client.page.navigationPage();
         navigationPage.createIssue('Test summary', true);
         client.pause(1000)
+
+    },
+
+    'Change status ': (client) => {
+        let issueDetailsPage = client.page.issueDetailsPage();
+        let navigationPage = client.page.navigationPage();
+        issueDetailsPage.changeStatus("Done");
+        navigationPage.waitForElementNotVisible('@flagContainer');
+        client.pause(1000)
+
+
+    },
+    'Delete issue ': (client) => {
+        let issueDetailsPage = client.page.issueDetailsPage();
+        let navigationPage = client.page.navigationPage();
+        issueDetailsPage.deleteIssue();
+        navigationPage.waitForElementPresent('@flagContainer');
+        navigationPage.waitForElementNotVisible('@flagContainer');
+        client.pause(1000)
             .end();
     },
 };

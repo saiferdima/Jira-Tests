@@ -18,7 +18,7 @@ const navigationCommands = {
             .click('@createButton')
             .waitForElementNotPresent('@createButton');
         if(navigateToDetailFlag){
-            this.waitForElementPresent('@flagContainer')
+            this.waitForElementVisible('@flagContainer')
                 .click('@createIssueLink');
         }
         return this;
