@@ -17,7 +17,7 @@ module.exports = {
 
     'Create issue ': (client) => {
         let navigationPage = client.page.navigationPage();
-        navigationPage.createIssue('Test summary', true);
+        navigationPage.createIssue(client.globals.issueSummary, true);
         client.pause(1000)
 
     },
@@ -28,16 +28,27 @@ module.exports = {
         issueDetailsPage.changeStatus("Done");
         navigationPage.waitForElementNotVisible('@flagContainer');
         client.pause(1000)
-
-
     },
+
+
     'Delete issue ': (client) => {
         let issueDetailsPage = client.page.issueDetailsPage();
         let navigationPage = client.page.navigationPage();
+        let searchPage = client.page.searchPage();
         issueDetailsPage.deleteIssue();
-        navigationPage.waitForElementPresent('@flagContainer');
-        navigationPage.waitForElementNotVisible('@flagContainer');
-        client.pause(1000)
-            .end();
+        navigationPage.waitForElementPresent('@flagContainer')
+            .getText('@flagContainer', (result) => {
+                console.log("result"+result.value);
+                let removedIssue = result.value.split(" ")[0];
+                console.log("removedIssue "+removedIssue);
+                navigationPage.waitForElementNotVisible('@flagContainer');
+                navigationPage.goToSearchForIssue();
+                searchPage.searchForText(client.globals.issueSummary);
+                searchPage.expect.element('@issueIdColumn').to.not.be.present;
+                client.pause(1000)
+                    .end();
+            });
     },
+
+
 };

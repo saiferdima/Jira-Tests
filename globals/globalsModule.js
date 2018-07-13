@@ -22,6 +22,7 @@ module.exports = {
     // Custom Settings
     adminLogin : "Admin",
     adminPsw : "admin",
+    issueSummary : "Delete me",
 
 
 

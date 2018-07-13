@@ -1,5 +1,4 @@
 const navigationCommands = {
-
     goToDashboard() {
         var menu = this.section.menu;
         menu.waitForElementVisible('@jiraLogoButton')
@@ -23,6 +22,16 @@ const navigationCommands = {
         }
         return this;
 
+    },
+};
+const issuesMenuComands = {
+    goToSearchForIssue(){
+        var menu = this.section.menu;
+        var issuesSubMenu = this.section.issuesSubMenu;
+        menu.waitForElementVisible('@issuesDropdown')
+            .click('@issuesDropdown');
+        issuesSubMenu.waitForElementVisible('@searchForIssues')
+            .click('@searchForIssues')
     }
 };
 
@@ -30,7 +39,7 @@ module.exports = {
     url: function () {
         return this.api.launchUrl;
     },
-    commands: [navigationCommands],
+    commands: [navigationCommands,issuesMenuComands],
     elements: {
         dashboardItemHeader: {selector: 'div[class="dashboard-item-header"'},
         flagContainer: {selector: 'div[id="aui-flag-container"]'},
@@ -57,6 +66,16 @@ module.exports = {
 
             },
         },
+        issuesSubMenu:{
+            selector: 'div[id="find_link-content"]',
+            elements:{
+                currentSearch:{selector:'a[href="/issues/"'},
+                searchForIssues:{selector:'a[href="/issues/?jql="'},
+                myOpenIssues:{selector:'li[id="filter_lnk_my"'},
+                reportedByMe:{selector:'li[id="filter_lnk_reported"'},
+                manageFilters:{selector:'li[id="issues_manage_filters_link"'}
+            }
+        }
 
     }
 };
