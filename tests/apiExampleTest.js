@@ -10,17 +10,22 @@ module.exports = {
     },
 
     "Retrieve API (GET)": function (client) {
-        var apiUrl = 'http://localhost:8080/rest/api/2/issue/createmeta';
+        var apiUrl = 'http://localhost:8080/rest/api/latest/issue/createmeta';
         client.apiGet(apiUrl, function (response) {
             console.log(response.body);
             var data = JSON.parse(response.body);
             console.log(data.status);
-
             client.assert.equal(response.statusCode, 200, "200 OK");
-
-            client.end();
         });
+    },
 
+    "Retrieve API with speragent (GET)": function (client) {
+        var apiUrl = 'http://localhost:8080/rest/api/latest/issue/createmeta';
+        client.apiGet2(apiUrl,function (response) {
+            console.log(response.body);
+            client.assert.equal(response.statusCode, 200, "200 OK");
+            client.end();
+        })
     },
 
     // "Retrieve API (POST)": function (client) {
@@ -31,9 +36,7 @@ module.exports = {
     //         console.log(response.body);
     //         var data = JSON.parse(response.body);
     //         console.log(data.status);
-    //
     //         client.assert.equal(response.statusCode, 200, "200 OK");
-    //
     //         client.end();
     //     });
     //

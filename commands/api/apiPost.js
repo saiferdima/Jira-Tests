@@ -8,7 +8,7 @@ apiPost.prototype.command = function (apiUrl, postBody, postHeaders, postAuth, s
     var request = require("request");
 
     var options = {
-        uri: apiUrl,
+        url: apiUrl,
         method: "POST",
         json: postBody
     };

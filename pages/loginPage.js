@@ -1,9 +1,11 @@
 const loginComands = {
     login(login, password) {
-        this.waitForElementVisible('@loginInput')
-            .setValue('@loginInput', login)
-            .waitForElementVisible('@passwordInput')
-            .setValue('@passwordInput', password)
+        this.waitForElementVisible('@loginInput');
+            this.api.pause(500);
+            this.setValue('@loginInput', login)
+            .waitForElementVisible('@passwordInput');
+            this.api.pause(500);
+        this.setValue('@passwordInput', password)
             .click('@submitButton');
         this.waitForElementVisible('@settingsButton');
 

@@ -8,7 +8,7 @@ apiGet.prototype.command = function(apiUrl, success) {
     var request = require("request");
 
     var options = {
-        uri: apiUrl,
+        url: apiUrl,
         method: "GET",
         headers: {'Content-Type': 'application/json'}
 
