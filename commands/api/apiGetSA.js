@@ -1,10 +1,10 @@
 var util = require('util');
 var events = require('events');
 
-function apiGet () {}
-util.inherits(apiGet, events.EventEmitter);
+function apiGetSA () {}
+util.inherits(apiGetSA, events.EventEmitter);
 
-apiGet.prototype.command = function(apiUrl, success) {
+apiGetSA.prototype.command = function(apiUrl, success) {
     var request = require("superagent");
 
     var options = {
@@ -31,4 +31,4 @@ apiGet.prototype.command = function(apiUrl, success) {
         // });
 };
 
-module.exports = apiGet;
+module.exports = apiGetSA;

@@ -1,6 +1,6 @@
 module.exports = {
     //TBD
-    '@disabled': true,
+     '@disabled': true,
     'Jira login': (client) => {
         let login = client.globals.adminLogin;
         let password = client.globals.adminPsw;
@@ -21,7 +21,7 @@ module.exports = {
 
     "Retrieve API with speragent (GET)": function (client) {
         var apiUrl = 'http://localhost:8080/rest/api/latest/issue/createmeta';
-        client.apiGet2(apiUrl,function (response) {
+        client.apiGetSA(apiUrl,function (response) {
             console.log(response.body);
             client.assert.equal(response.statusCode, 200, "200 OK");
             client.end();
