@@ -4,6 +4,7 @@
  * Commands written like this should inherit from EventEmitter and manually signal the complete event, to indicate command completion.
  * Class-based command methods are run in the context (the value of this) of the class instance.
  * The test api object is available as this.api or this.client.api, where this.client is the Nightwatch instance itself
+ * https://github.com/nightwatchjs/nightwatch-docs/blob/master/guide/extending-nightwatch/custom-commands.md
  * */
 var util = require('util');
 var events = require('events');
