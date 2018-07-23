@@ -25,6 +25,8 @@ module.exports = {
             console.log(response.body);
             client.assert.equal(response.statusCode, 200, "200 OK");
             client.end();
+
+            
         })
     },
 
