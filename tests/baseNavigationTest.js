@@ -4,6 +4,7 @@ module.exports = {
         let password = client.globals.adminPsw;
         let loginPage = client.page.loginPage();
         loginPage.navigate();
+
         loginPage.login(login, password);
 
     },
