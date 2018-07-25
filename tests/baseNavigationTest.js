@@ -13,7 +13,6 @@ module.exports = {
         let navigationPage = client.page.navigationPage();
         navigationPage.goToDashboard();
         navigationPage.expect.element('@dashboardItemHeader').to.be.visible;
-
     },
 
     'Create issue ': (client) => {
