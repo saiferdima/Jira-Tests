@@ -20,6 +20,7 @@ module.exports = {
         let navigationPage = client.page.navigationPage();
         navigationPage.createIssue(client.globals.issueSummary, true);
         client.pause(1000)
+        
 
     },
 
